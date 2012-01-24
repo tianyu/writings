@@ -1,0 +1,12 @@
+The private implementation idiom:
+
+Advantages:
+- Binary compatability
+- Fast deep copying
+- Invisible private implementations
+- Multiple interfaces
+- Simpler programmer interface.
+
+Disadvantages:
+- Extra layer of indirection causes performance overhead
+- No control over how the object is allocated
