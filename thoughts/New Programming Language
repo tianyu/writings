@@ -1,0 +1,7 @@
+[Make inheritance not complicated]
+Currently, the concept of inheritance is too complicated.
+This is sign that inheritance was not well thought out and could benefit from redesign.
+Inheritance allows programmers to reuse interfaces as well as code.
+It is a multi-use tool, yet there is no way to enforce a programmer to document which way it is used.
+The implementation of inheritance is also complex, and complicated inheritance schemes leaves the compiler's implementation of the class somewhat of a black box surrounded by voodoo magic.
+This is unacceptable as in some use cases, controlling an object's memory layout is imperative.
