@@ -1,6 +1,16 @@
 Problems:
-- Sharing memory is hard, but current memory models make memory sharing available by default. Recall that a typical single-threaded program lays out memory in three sections. Read-only memory at the top, followed by heap memory growing top down, with stack memory growing bottom up. This memory model was great when there was only one thread since both the heap and the thread can continue to use memory until all of it is used. But now that multiple threads are the norm, we worry about the amount of memory to allocate to each thread. If we allocate too little, then stack overflows are a problem, but if we allocate too much, the heap will be too small.
+- Sharing memory is hard, but current memory models make memory sharing available by default.
+Recall that a typical single-threaded program lays out memory in three sections.
+Read-only memory at the top, followed by heap memory growing top down, with stack memory growing bottom up.
+This memory model was great when there was only one thread since both the heap and the thread can continue to use memory until all of it is used.
+But now that multiple threads are the norm, we worry about the amount of memory to allocate to each thread.
+If we allocate too little, then stack overflows are a problem, but if we allocate too much, the heap will be too small.
 
-The solution is to take every thread and put it in its own address space. This can be done by requesting from the kernel a virtual address space for each seperate thread. Since each thread's address space is only accessible by itself, we can store a local heap growing down and a local stack growing up in it. The operating system's virtual addressing system should keep each thread's local memory space from conflicting with each other.
+The solution is to take every thread and put it in its own address space.
+This can be done by requesting from the kernel a virtual address space for each seperate thread.
+Since each thread's address space is only accessible by itself, we can store a local heap growing down and a local stack growing up in it.
+The operating system's virtual addressing system should keep each thread's local memory space from conflicting with each other.
 
-Shared memory would be stored in a seperate address space, which threads can refer to through the use of a special pointer type. The only exception to this is the read-only code. Each page of the program's read-only code would still be allocated to each thread's local memory.
+Shared memory would be stored in a seperate address space, which threads can refer to through the use of a special pointer type.
+The only exception to this is the read-only code.
+Each page of the program's read-only code would still be allocated to each thread's local memory.
