@@ -1,3 +1,21 @@
+[Seperate Data from Interface]
+Object-oriented programming requires the management of the Data the Interface and the Implementation.
+
+The Data:
+- Where is it stored?
+-
+What is its lifetime?
+
+The Interface:
+- How should it be used?
+
+The Implementation:
+- How does the Interface access the Data?
+
+An Interface defines how a Datum should be used.
+It could be that a Datum can have multiple interfaces depending on the context in which it is accessed.
+It could also be that an Interface accesses different types of Data.
+
 [Make inheritance not complicated]
 Currently, the concept of inheritance is too complicated.
 This is sign that inheritance was not well thought out and could benefit from redesign.
